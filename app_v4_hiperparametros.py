@@ -2782,6 +2782,7 @@ with tabs[3]:
                 for name,res in valid.items():
                     rows.append({
                         "Classificador": name,
+                        "_score_selection": float(res.get("cv_tuning_mean", res["cv_f1_weighted_mean"])),
                         "CV F1 ponderado": f"{res['cv_f1_weighted_mean']:.4f} ± {res['cv_f1_weighted_std']:.4f}",
                         "CV F1 macro": f"{res['cv_f1_macro_mean']:.4f} ± {res['cv_f1_macro_std']:.4f}",
                         "Média CV (métrica de tuning)": round(res.get("cv_tuning_mean", res["cv_f1_weighted_mean"]), 4),
